@@ -7,4 +7,20 @@ import { Component } from '@angular/core';
 })
 export class RulerComponent {
 
+  rulerProps = {
+    markers : [
+      'P0',
+      'P45',
+      'P55',
+      'P80',
+      'P100',
+    ],
+    specialityPosition: 'P100',
+    currentPosition: 'P40'
+  }
+
+  getMarkerPosition(marker: string) {
+    return Number(marker.replace('P', ''));
+  }
+
 }

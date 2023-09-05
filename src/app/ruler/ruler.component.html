@@ -1,1 +1,35 @@
-<p>ruler works!</p>
+<div class="ruler-container">
+  <div class="marker-container">
+    <div class="marker" *ngFor="let marker of rulerProps.markers" 
+    [style.left.%]="getMarkerPosition(marker)">
+      <span class="marker-label">{{
+        marker
+      }}</span>
+    </div>
+  </div>
+  <div class="ruler-base"></div>
+  <div class="ruler-point"></div>
+  <div class="indicator"
+    [style.left.%]="getMarkerPosition(rulerProps.currentPosition)">
+    <div class="indicator-point"></div>
+    <span
+      class="indicator-label"
+      [ngClass]="
+        getMarkerPosition(rulerProps.currentPosition) < 50 ? 'right' : 'left'
+      "
+      >You are at {{rulerProps.currentPosition}}</span
+    >
+  </div>
+  <div class="ruler-point"></div>
+  <div class="indicator"
+    [style.left.%]="getMarkerPosition(rulerProps.specialityPosition)">
+    <div class="indicator-point"></div>
+    <span
+      class="indicator-label"
+      [ngClass]="
+        (getMarkerPosition(rulerProps.specialityPosition)) < 50 ? 'right' : 'left'
+      "
+      >Your speciality are at {{rulerProps.specialityPosition}}</span
+    >
+  </div>
+</div>
